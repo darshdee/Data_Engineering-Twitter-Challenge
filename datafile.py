@@ -16,7 +16,7 @@ import os, datetime, time
 with open("twitter_credentials.json", "r") as file:      
     creds = json.load(file)
 
-def get_data():  
+def get_data(query):  
     """
     Requests and extracts the data twitter. Returns a clean dataframe     
     """
@@ -24,9 +24,9 @@ def get_data():
     python_tweets = Twython(creds['CONSUMER_KEY'], creds['CONSUMER_SECRET'])
     
     # Create our query
-    query = {'q': 'Climate change',  
+    query = {'q': query,  
             'result_type': 'popular',
-            'count': 100,
+            'count': 20,
             'lang': 'en',
             'truncated': 'False'
             }    

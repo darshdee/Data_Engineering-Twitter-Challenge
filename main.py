@@ -20,10 +20,10 @@ os.chdir(dir_path)
 Main
 """
 
-all_tweets = get_data()
+all_tweets = get_data('climate change')
 
 
-def write_each_dir(date):        
+def write_each_dir(df,date):        
         
     """
     Creates a project directory for each year and date depending on the file being processed
@@ -74,7 +74,7 @@ def write_into_folders(df, date_col):
     
     # Iterate over each unique year/date combination 
     for date in all_dates:    
-        write_each_dir(date=date)
+        write_each_dir(df = df, date=date)
         
 write_into_folders(df = all_tweets, date_col = 'date')
 
